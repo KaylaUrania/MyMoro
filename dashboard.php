@@ -95,7 +95,7 @@ $brgNum = count($barang);
               <div class="icon">
                 <i class="ion ion-person-stalker"></i>
               </div>
-              <a href="<?= $main_url ?>customer" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= $main_url ?>customer/data-customer.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -105,12 +105,12 @@ $brgNum = count($barang);
               <div class="inner">
                 <h3><?= $brgNum ?></h3>
 
-                <p>Barang</p>
+                <p>Items</p>
               </div>
               <div class="icon">
                 <i class="ion ion-android-cart"></i>
               </div>
-              <a href="<?= $main_url ?>barang" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= $main_url ?>barang/index.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
