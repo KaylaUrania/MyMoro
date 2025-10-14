@@ -1,0 +1,38 @@
+body{
+    background-color: deepskyblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loading{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title{
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.progress-bar{
+    width: 406px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 7px;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.progress{
+    width: 10px;
+    height: 5px;
+    background: rgb(255, 95, 95);
+    border-radius: 7px;
+    transition: width 0.1s;
+}
