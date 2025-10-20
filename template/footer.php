@@ -68,6 +68,160 @@
       $('#tblData').DataTable();
   });
 </script>
+
+<?php if (strpos($_SERVER['PHP_SELF'], '/penjualan/index.php') !== false) : ?>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
+  <style>
+    #reader {
+      position: relative;
+      width: 350px;
+      height: 220px;
+      margin-top: 10px;
+      border: 3px solid #0d6efd;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+    }
+
+    #reader video {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+    }
+
+    #reader::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      height: 2px;
+      background: red;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+    }
+  </style>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("%c[scanner] ready...", "color: #0d6efd; font-weight: bold;");
+
+    const btnScan = document.getElementById("btnScan");
+    const readerDiv = document.getElementById("reader");
+    const barcodeInput = document.getElementById("barcode");
+    const tglInput = document.getElementById("tglNota");
+    const statusText = document.getElementById("scan-status");
+    let isScanning = false;
+
+    if (!btnScan || !readerDiv) {
+      console.warn("[scanner] tombol atau div reader tidak ditemukan");
+      return;
+    }
+
+    function startScanner() {
+      if (isScanning) return;
+      isScanning = true;
+      readerDiv.style.display = "block";
+      statusText && (statusText.style.display = "block");
+      btnScan.innerHTML = '<i class="fas fa-times"></i> Stop';
+
+      console.log("[scanner] inisialisasi Quagga...");
+
+      Quagga.init({
+        inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: readerDiv,
+          constraints: {
+            facingMode: "environment"
+          }
+        },
+        decoder: {
+          readers: [
+            "code_128_reader",
+            "ean_reader",
+            "ean_8_reader",
+            "upc_reader",
+            "upc_e_reader",
+            "code_39_reader",
+            "code_93_reader",
+            "i2of5_reader",      
+            "2of5_reader",       
+            "codabar_reader"     
+          ]
+        },
+        locator: {
+          halfSample: true,
+          patchSize: "medium",
+          debug: {
+            showCanvas: true,
+            showPatches: true,
+            showFoundPatches: true,
+            showSkeleton: false,
+            showLabels: true,
+            showPatchLabels: true,
+            showRemainingPatchLabels: true,
+            boxFromPatches: {
+            showTransformed: true,
+            showTransformedBox: true,
+            showBB: true
+            }
+          }
+        }
+      }, function (err) {
+        if (err) {
+          console.error("[scanner] gagal init:", err);
+          alert("Kamera gagal dimulai: " + err);
+          stopScanner();
+          return;
+        }
+        Quagga.start();
+        console.log("%c[scanner] started", "color: green; font-weight: bold;");
+      });
+
+      Quagga.onProcessed(function (result) {
+        if (result && result.boxes) {
+          console.log("[scanner] frame diproses, kandidat ditemukan:", result.boxes.length);
+        }
+      });
+
+      Quagga.onDetected(function (data) {
+        const code = data.codeResult.code;
+        console.log("%c[scanner] barcode terdeteksi:", "color: lime;", code);
+
+        if (code) {
+          barcodeInput.value = code;
+          stopScanner();
+          alert("Barcode terbaca: " + code);
+          window.location.href = '?barcode=' + encodeURIComponent(code) + '&tgl=' + encodeURIComponent(tglInput?.value || '');
+        }
+      });
+    }
+
+    function stopScanner() {
+      if (!isScanning) return;
+      Quagga.stop();
+      isScanning = false;
+      readerDiv.style.display = "none";
+      statusText && (statusText.style.display = "none");
+      btnScan.innerHTML = '<i class="fas fa-camera"></i> Scan';
+      console.log("%c[scanner] stopped", "color: orange; font-weight: bold;");
+    }
+
+    btnScan.addEventListener("click", function () {
+      if (isScanning) {
+        stopScanner();
+      } else {
+        startScanner();
+      }
+    });
+
+    window.addEventListener("beforeunload", stopScanner);
+  });
+  </script>
+<?php endif; ?>
+
 </body>
 
 </html>

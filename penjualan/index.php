@@ -16,6 +16,7 @@ require "../template/header.php";
 require "../template/navbar.php";
 require "../template/sidebar.php";
 
+
 if (isset($_GET['msg'])) {
   $msg = $_GET['msg'];
 } else {
@@ -100,46 +101,57 @@ $nojual = generateNoJual();
       </div><!-- /.container-fluid -->
     </div>
 
-    <section>
-    <div class="container-fluid">
-      <form action="" method="post">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card card-outline card-warning p-3">
-              <div class="form-group row mb-2">
-                <label for="noNota" class="col-sm-2 col-form-label">No Nota</label>
-                <div class="col-sm-4">
-                  <input type="text" name="nojual" class="form-control" id="noNota" value="<?= $nojual ?>">
-                </div>
-                <label for="tglNota" class="col-sm-2 col-form-label">Date</label>
-                <div class="col-sm-4">
-                  <input type="date" name="tglNota" class="form-control" id="tglNota" 
-                        value="<?= @$_GET['tgl'] ? $_GET['tgl'] : date('Y-m-d') ?>" required>
-                </div>
+  <section>
+  <div class="container-fluid">
+    <form action="" method="post">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-outline card-warning p-3">
+            <!-- No Nota & Date -->
+            <div class="form-group row mb-2">
+              <label for="noNota" class="col-sm-2 col-form-label">No Nota</label>
+              <div class="col-sm-4">
+                <input type="text" name="nojual" class="form-control" id="noNota" value="<?= $nojual ?>">
               </div>
-              <div class="form-group row mb-2">
-                <label for="barcode" class="col-sm-2 col-form-label">Barcode</label>
-                <div class="col-sm-10 input-group">
-                  <input type="text" name="barcode" id="barcode" 
-                        value="<?= @$_GET['barcode'] ? $_GET['barcode'] : '' ?>" 
-                        class="form-control" placeholder="masukan kode barang">
+
+              <label for="tglNota" class="col-sm-2 col-form-label">Date</label>
+              <div class="col-sm-4">
+                <input type="date" name="tglNota" class="form-control" id="tglNota" 
+                  value="<?= @$_GET['tgl'] ? $_GET['tgl'] : date('Y-m-d') ?>" required>
+              </div>
+            </div>
+
+            <!-- Barcode + Scan -->
+            <div class="form-group row mb-2">
+              <label for="barcode" class="col-sm-2 col-form-label">Barcode</label>
+              <div class="col-sm-10">
+                <div class="input-group">
+                  <input type="text" name="barcode" id="barcode" value="<?= @$_GET['barcode'] ? $_GET['barcode'] : '' ?>" class="form-control" placeholder="Scan atau ketik kode barang">
                   <div class="input-group-append">
-                    <span class="input-group-text" id="icon-barcode"><i class="fas fa-barcode"></i></span>
+                    <button type="button" class="btn btn-warning" id="btnScan"><i class="fas fa-camera"></i> Scan</button>
                   </div>
                 </div>
+
+                <span id="scan-status" class="text-muted small" style="display:none;">📸 Camera Active, Point the Item Barcode at the Camera</span>
+                <div id="reader" style="width:100%; max-width:350px; margin-top:10px; display:none; border-radius:8px; overflow:hidden;"></div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="card card-outline card-danger pt-3 px-3 pb-2">
-              <h6 class="font-weight-bold text-right">Total</h6>
-              <h1 class="font-weight-bold text-right" style="font-size: 40pt;">
-                <input type="hidden" name="total" id="total" value="<?= totalJual($nojual) ?>"><?= number_format(totalJual($nojual), 0, ',', '.') ?>
-              </h1>
-            </div>
+
           </div>
         </div>
-        <div class="card pt-1 pb-2 px-3">
+
+        <div class="col-lg-6">
+          <div class="card card-outline card-danger pt-3 px-3 pb-2">
+            <h6 class="font-weight-bold text-right">Total</h6>
+            <h1 class="font-weight-bold text-right" style="font-size: 40pt;">
+              <input type="hidden" name="total" id="total" value="<?= totalJual($nojual) ?>">
+              <?= number_format(totalJual($nojual), 0, ',', '.') ?>
+            </h1>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card pt-1 pb-2 px-3">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -262,6 +274,8 @@ $nojual = generateNoJual();
         </div>
     </section>
 
+    <div id="reader" style="width: 300px;"></div>
+    <div id="result"></div>
     <script>
       let barcode   = document.getElementById('barcode');
       let tgl       = document.getElementById('tglNota');
