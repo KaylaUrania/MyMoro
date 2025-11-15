@@ -223,7 +223,7 @@ $noBeli = generateNo();
                             </div>
                         </div>
                         <div class="form-group row mb-2">
-                            <label for="ketr" class="col-sm-3 col-form-label">Information/Note</label>
+                            <label for="ketr" class="col-sm-3 col-form-label">Info/Note</label>
                             <div class="col-sm-9">
                                 <textarea name="ketr" id="ketr" class="form-control form-control-sm"></textarea>
                             </div>

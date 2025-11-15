@@ -25,8 +25,6 @@ if (isset($_GET['msg'])){
     $msg = '';
 }
 
-echo 'msg dari URL = ' . $msg;
-
 $alert = '';
 
 if ($msg == 'deleted'){
@@ -88,7 +86,7 @@ if ($msg == 'simpan'){
               echo $alert;
           }?>
           <div class="card-header">
-            <h3 class="card-title"><i class="fas fa-bars"></i>  Supplier Data</h3>
+            <h3 class="card-title"><i class="fas fa-bars"></i></h3>
             <a href="<?= $main_url ?>supplier/add-supplier.php" class="btn btn-sm btn-primary float-right"><i class="fas fa-user-plus"></i>  Add Supplier</a>
           </div>
           <div class="card-body table-responsive p-3">

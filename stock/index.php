@@ -46,7 +46,7 @@ $stockBrg = getData("SELECT * FROM  tbl_barang");
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fas fa-bars"></i> Stock</h3>
+                    <h3 class="card-title"><i class="fas fa-bars"></i></h3>
                         <a href="<?= $main_url ?>report/r-stock.php" class="btn btn-sm btn-outline-primary float-right" target="_blank"><i class="fas fa-print"></i> Print</a>
                 </div>
                 <div class="card-body table-responsive p-3">

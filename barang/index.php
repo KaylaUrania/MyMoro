@@ -94,7 +94,7 @@ if ($msg == 'updated') {
                     echo $alert;
                 } ?>
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fas fa-bars"></i> Item Data</h3>
+                    <h3 class="card-title"><i class="fas fa-bars"></i></h3>
                         <a href="<?= $main_url ?>barang/form-barang.php" class="mr-2 btn btn-sm btn-primary float-right"><i class="fas fa-plus fa-sm"></i> Add Item</a>
                 </div>
                 <div class="card-body table-responsive p-3">

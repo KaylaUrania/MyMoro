@@ -1,0 +1,191 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Baloo 2', cursive;
+  background-color: #fff8fc !important;
+  color: #333333 !important;
+}
+
+/* NAVBAR (pink) */
+.navbar {
+  background: #ff2da6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar a {
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  color: #fcfafb !important;
+}
+
+/* SIDEBAR */
+.main-sidebar {
+  background-color: #e0dfe0 !important;
+}
+
+.sidebar a {
+  color: #000000 !important;
+  font-weight: 600;
+  letter-spacing: .3px;
+  border-radius: 8px;
+  transition: .2s;
+}
+
+/* warna teks header sidebar (Transaction, Report, Setting) */
+.sidebar .nav-header {
+  color:  #bb086a !important; 
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.5px;
+  opacity: 1 !important; 
+}
+
+.sidebar a:hover,
+.sidebar .nav-item:hover > a {
+  background-color: #ffe600 !important;
+  color: #0c0c0c !important;
+}
+
+.sidebar .nav-link.active {
+  background-color: #ff72c4 !important; 
+  color: #000000 !important;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(255,45,166,0.4);
+}
+
+/* SMALL BOX */
+.small-box {
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: .2s;
+}
+
+.small-box:hover {
+  transform: translateY(-5px);
+}
+
+/* CARD COLORS */
+.bg-info {
+  background: linear-gradient(135deg, #ffe600, #ffb300) !important;
+  color: #333 !important;
+}
+
+.bg-success {
+  background: linear-gradient(135deg, #ff72c4, #ff2da6) !important;
+  color: #fff !important;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #ffe600, #ffcf33) !important;
+  color: #333 !important;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #ff2da6, #ff6ea8) !important;
+  color: #fff !important;
+}
+
+/* CARD */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  background-color: #ffe600 !important;
+  color: #333333 !important;
+  font-weight: 700;
+}
+
+/* FOOTER */
+.main-footer {
+  background-color: #d1d1d1;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* BUTTON */
+.btn-primary {
+  background-color: #ff2da6 !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background-color: #e6008e !important;
+}
+
+.brand-link .brand-text {
+  color: #bb086a !important;
+  font-weight: 800 !important;
+}
+
+.navbar-nav .dropdown-menu {
+    color: #000 !important;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #ffe6f7 !important;
+    color: #000 !important;
+}
+
+/* ========== DARK MODE CUSTOM ========== */
+
+/* Background Utama */
+body.dark-mode {
+    background-color: #302f2f !important; 
+    color: #ffffff !important;
+}
+
+/* card */
+body.dark-mode .card,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode .form-control {
+    background-color: #fcf9f9!important;
+    color: #312e2e !important;
+}
+
+/* tombol tetap pink */
+body.dark-mode .btn-primary {
+    background-color: #ff2da6 !important;
+    color: #fff !important;
+}
+
+/* footer */
+body.dark-mode .main-footer {
+    background-color: #d1d1d1 !important;
+    color: #333 !important;
+}
+
+/* Sidebar tetap warna aslinya */
+body.dark-mode .main-sidebar {
+    background-color: #e0dfe0 !important;
+}
+
+/* Navbar tetap pink */
+body.dark-mode .navbar {
+    background: #ff2da6 !important;
+}
+
+
+
+
+
+
+

@@ -46,7 +46,7 @@ $penjualan = getData("SELECT * FROM  tbl_jual_head");
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fas fa-bars"></i> Sales Data</h3>
+                    <h3 class="card-title"><i class="fas fa-bars"></i></h3>
                         <button type="button" class="btn btn-sm btn-outline-primary float-right" data-toggle="modal" data-target="#mdlPriodejual"><i class="fas fa-print"></i> Print</button>
                 </div>
                 <div class="card-body table-responsive p-3">
