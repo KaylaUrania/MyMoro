@@ -50,19 +50,19 @@ if (isset($_POST['login'])){
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= $main_url ?>/asset/AdminLTE-3.2.0/dist/css/adminlte.min.css">
   <!-- favicon -->
-  <link rel="shortcut icon" href="<?= $main_url ?>asset/image/bg-mymoro.jpeg" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="<?= $main_url ?>/asset/image/logomymoro.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="<?= $main_url ?>asset/css/style.css">
 </head>
 
 <body class="hold-transition login-page" id="bg-login">
-<div class="login-box slide-down" style="margin-top: -70px;">
+<div class="login-box bounce-in" style="margin-top: -70px;">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="#" class="h1"><b>MyMoro</b>Baby Store</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg font-bold">Sign In</p>
+      <p class="login-box-msg font-bold"></p>
 
       <form action="#" method="post">
         <div class="input-group mb-4">
@@ -74,13 +74,15 @@ if (isset($_POST['login'])){
           </div>
         </div>
         <div class="input-group mb-4">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+            <input type="password" name="password" class="form-control" placeholder="Password" id="passwordInput">
+            <div class="input-group-append">
+                <div class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                    <i class="fas fa-eye"></i>
+                </div>
             </div>
-          </div>
         </div>
+
+
         
         <div class="mb-4">
             <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
@@ -104,5 +106,19 @@ if (isset($_POST['login'])){
 <script src="<?= $main_url ?>/asset/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= $main_url ?>/asset/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
+
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('passwordInput');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.type === "password" ? "text" : "password";
+        passwordInput.type = type;
+
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>
+
 </body>
 </html>

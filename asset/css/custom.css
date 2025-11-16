@@ -1,4 +1,3 @@
-/* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
 
 body {
@@ -7,7 +6,6 @@ body {
   color: #333333 !important;
 }
 
-/* NAVBAR (pink) */
 .navbar {
   background: #ff2da6 !important;
   color: #ffffff !important;
@@ -24,7 +22,6 @@ body {
   color: #fcfafb !important;
 }
 
-/* SIDEBAR */
 .main-sidebar {
   background-color: #e0dfe0 !important;
 }
@@ -37,7 +34,6 @@ body {
   transition: .2s;
 }
 
-/* warna teks header sidebar (Transaction, Report, Setting) */
 .sidebar .nav-header {
   color:  #bb086a !important; 
   font-weight: 700 !important;
@@ -59,7 +55,6 @@ body {
   box-shadow: 0 0 10px rgba(255,45,166,0.4);
 }
 
-/* SMALL BOX */
 .small-box {
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -70,7 +65,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* CARD COLORS */
 .bg-info {
   background: linear-gradient(135deg, #ffe600, #ffb300) !important;
   color: #333 !important;
@@ -91,7 +85,6 @@ body {
   color: #fff !important;
 }
 
-/* CARD */
 .card {
   background-color: #ffffff;
   border-radius: 12px;
@@ -105,14 +98,12 @@ body {
   font-weight: 700;
 }
 
-/* FOOTER */
 .main-footer {
   background-color: #d1d1d1;
   color: #333333;
   font-weight: 500;
 }
 
-/* BUTTON */
 .btn-primary {
   background-color: #ff2da6 !important;
   border: none !important;
@@ -143,15 +134,11 @@ body {
     color: #000 !important;
 }
 
-/* ========== DARK MODE CUSTOM ========== */
-
-/* Background Utama */
 body.dark-mode {
     background-color: #302f2f !important; 
     color: #ffffff !important;
 }
 
-/* card */
 body.dark-mode .card,
 body.dark-mode input,
 body.dark-mode select,
@@ -161,24 +148,20 @@ body.dark-mode .form-control {
     color: #312e2e !important;
 }
 
-/* tombol tetap pink */
 body.dark-mode .btn-primary {
     background-color: #ff2da6 !important;
     color: #fff !important;
 }
 
-/* footer */
 body.dark-mode .main-footer {
     background-color: #d1d1d1 !important;
     color: #333 !important;
 }
 
-/* Sidebar tetap warna aslinya */
 body.dark-mode .main-sidebar {
     background-color: #e0dfe0 !important;
 }
 
-/* Navbar tetap pink */
 body.dark-mode .navbar {
     background: #ff2da6 !important;
 }

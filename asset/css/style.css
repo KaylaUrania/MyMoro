@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+body{
+    background: #ff2da6 !important;
+    font-family: 'Baloo 2', cursive;
+}
+
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-bar{
+    width: 406px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.progress{
+    width: 10px;
+    height: 5px;
+    background: #e6e201;
+    border-radius: 7px;
+    transition: width 0.1s;
+}
+
+/* login */
+
+#bg-login {
+    background-color: #ff059350 !important;
+}
+
+.login-box .card {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.card-primary:not(.card-outline)>.card-header,
+.card-outline.card-primary>.card-header {
+    background: #ff2da6 !important;
+    color: #000000 !important;
+    font-weight: 800;
+}
+
+.card-header a {
+    color: #f2f701 !important;
+    display:inline-block;
+    border: 1px solid #fcfafa;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Baloo 2', cursive;
+}
+
+.btn-primary {
+    background-color: #ffe600 !important;
+    border: 1px solid #fc6abf !important;
+    color: #202020 !important;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e6e201 !important;
+}
+
+.input-group .form-control {
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #fc84ca !important;
+}
+
+.input-group-text {
+    background-color: #ebc1dd !important;
+    border: 1px solid #ff72c4 !important;
+    border-radius: 0 10px 10px 0;
+}
+
+.bounce-in {
+    animation: bounceIn 0.9s ease forwards;
+}
+
+@keyframes bounceIn {
+    0%   { transform: scale(0.9); opacity: 0; }
+    50%  { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.login-page {
+    padding-top: 20px !important;
+}
+
+@media (max-width: 576px) {
+    .login-box {
+        width: 90% !important;
+        margin-top: -20px !important;
+    }
+
+    .login-box .card {
+        border-radius: 15px;
+    }
+}
+
